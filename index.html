@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <title>3D-Actionfigur Prompt Generator</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      max-width: 700px;
+      margin: 40px auto;
+      padding: 20px;
+      background-color: #f9f9f9;
+      border-radius: 12px;
+      box-shadow: 0 0 12px rgba(0,0,0,0.1);
+    }
+    h1 {
+      text-align: center;
+    }
+    label {
+      display: block;
+      margin-top: 15px;
+      font-weight: bold;
+    }
+    input, textarea, select {
+      width: 100%;
+      padding: 8px;
+      margin-top: 5px;
+      border-radius: 6px;
+      border: 1px solid #ccc;
+    }
+    button {
+      margin-top: 20px;
+      padding: 12px;
+      background-color: #007bff;
+      color: white;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      width: 100%;
+    }
+    #output {
+      margin-top: 30px;
+      white-space: pre-wrap;
+      background-color: #fff;
+      padding: 15px;
+      border-radius: 10px;
+      border: 1px solid #ccc;
+    }
+  </style>
+</head>
+<body>
+  <h1>🧍‍♂️ 3D-Actionfigur Prompt Generator</h1>
+
+  <label for="charName">Charaktername</label>
+  <input type="text" id="charName" placeholder="z. B. Shadow Blade">
+
+  <label for="style">Stil/Genre</label>
+  <input type="text" id="style" placeholder="z. B. Cyberpunk, Fantasy, Superheld">
+
+  <label for="description">Kurzbeschreibung des Charakters</label>
+  <textarea id="description" rows="2" placeholder="z. B. kybernetischer Kämpfer mit Energieschwert"></textarea>
+
+  <label for="size">Größe (in cm)</label>
+  <input type="text" id="size" placeholder="z. B. 15">
+
+  <label for="pose">Pose</label>
+  <input type="text" id="pose" placeholder="z. B. Kampfpose, Sprungpose">
+
+  <label for="armor">Rüstung/Kleidung</label>
+  <textarea id="armor" rows="2" placeholder="z. B. dunkle Rüstung mit Neonakzenten"></textarea>
+
+  <label for="face">Gesicht & Kopf</label>
+  <textarea id="face" rows="2" placeholder="z. B. Helm mit Visier, Narbe über dem Auge"></textarea>
+
+  <label for="accessories">Zubehör/Waffen</label>
+  <textarea id="accessories" rows="2" placeholder="z. B. Laser-Schwert, Jetpack"></textarea>
+
+  <label for="base">Base/Standfläche</label>
+  <textarea id="base" rows="2" placeholder="z. B. runde Base mit Logo-Gravur"></textarea>
+
+  <button onclick="generatePrompt()">🎨 Prompt erstellen</button>
+
+  <div id="output"></div>
+
+  <script>
+    function generatePrompt() {
+      const name = document.getElementById('charName').value;
+      const style = document.getElementById('style').value;
+      const description = document.getElementById('description').value;
+      const size = document.getElementById('size').value;
+      const pose = document.getElementById('pose').value;
+      const armor = document.getElementById('armor').value;
+      const face = document.getElementById('face').value;
+      const accessories = document.getElementById('accessories').value;
+      const base = document.getElementById('base').value;
+
+      const prompt = `Erstelle eine detailreiche 3D-Actionfigur im Stil von ${style}.\n\nDie Figur stellt einen Charakter namens "${name}" dar – ${description}.\n\nDie Actionfigur ist ca. ${size} cm groß, steht in einer ${pose}.\n\nKleidung und Rüstung: ${armor}.\n\nGesicht & Kopf: ${face}.\n\nZubehör: ${accessories}.\n\nBase/Standfläche: ${base}.\n\nStil: realistische Kunststoff-Texturen, reflektierende Materialien, scharfe Schatten und lebendige Farben. Optional: Verpackung im Stil von Sammlerfiguren.`;
+
+      document.getElementById('output').innerText = prompt;
+    }
+  </script>
+</body>
+</html>
